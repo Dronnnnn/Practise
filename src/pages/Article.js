@@ -3,7 +3,6 @@ import { useLocation} from "react-router-dom";
 
 function Article() {
     const location = useLocation().state;
-    console.log(location);
     return (
         <div className="row col m-5 text-left p-5 fw-bold">
             <h2 className='text-white font-weight-bold ml-5 mr-5 text-center'> {location.title} </h2>

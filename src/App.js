@@ -4,8 +4,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Articles from './pages/Articles';
 import { Container, Navbar } from 'react-bootstrap';
 import Article from './pages/Article';
+import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
+import ScreenArticles from './pages/ScreenArticles';
 
 function App() {
+
+  const queryClient = new QueryClient()
+
+
   return (
     <>
       <header>
@@ -16,10 +22,12 @@ function App() {
         </Navbar>
       </header>
       <main>
+      <QueryClientProvider client={queryClient}>
         <Routes>
-          <Route path='/' element={<Articles />} />
+          <Route path='/' element={<ScreenArticles />} />
           <Route path='/article/:id' element={<Article />} />
         </Routes>
+        </QueryClientProvider>
       </main>
     </>
 
